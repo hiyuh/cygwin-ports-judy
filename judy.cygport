@@ -1,0 +1,38 @@
+NAME="judy"
+VERSION=1.0.5
+RELEASE=1
+CATEGORY="Libs Devel"
+SUMMARY="General purpose dynamic array"
+DESCRIPTION="Judy is a C library that provides a state-of-the-art 
+core technology that implements a sparse dynamic array. Judy arrays 
+are declared simply with a null pointer. A Judy array consumes memory 
+only when it is populated, yet can grow to take advantage of all 
+available memory if desired."
+HOMEPAGE="http://judy.sourceforge.net/"
+SRC_URI="mirror://sourceforge/${PN}/Judy-${PV}.tar.gz"
+
+PATCH_URI="mirror://portage/dev-libs/${PN}/files/${P}-parallel-make.patch"
+
+PKG_NAMES="libjudy libjudy-devel"
+libjudy_SUMMARY="Judy library (runtime)"
+libjudy_CONTENTS=""
+libjudy_devel_SUMMARY="Judy library (development)"
+libjudy_devel_CONTENTS="
+	usr/share/doc/
+	usr/share/man/
+	usr/include/Judy.h
+	usr/lib/libJudy.a
+	usr/lib/libJudy.la"
+
+src_compile() {
+	cd ${S}
+	sed -i 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure.ac
+	cygautoreconf
+	cygconf
+	cygmake
+}
+
+src_install() {
+	cyginstall
+	dodoc AUTHORS ChangeLog README
+}
