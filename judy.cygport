@@ -13,9 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/Judy-${PV}.tar.gz"
 
 PATCH_URI="mirror://portage/dev-libs/${PN}/files/${P}-parallel-make.patch"
 
-PKG_NAMES="libjudy libjudy-devel"
-libjudy_SUMMARY="Judy library (runtime)"
-libjudy_CONTENTS=""
+PKG_NAMES="libjudy-devel"
 libjudy_devel_SUMMARY="Judy library (development)"
 libjudy_devel_CONTENTS="
 	usr/share/doc/
