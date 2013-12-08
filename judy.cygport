@@ -1,7 +1,7 @@
 NAME="judy"
 VERSION=1.0.5
 RELEASE=1
-CATEGORY="Libs Devel"
+CATEGORY="Libs"
 SUMMARY="General purpose dynamic array"
 DESCRIPTION="Judy is a C library that provides a state-of-the-art 
 core technology that implements a sparse dynamic array. Judy arrays 
